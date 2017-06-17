@@ -10,3 +10,8 @@
 ##  -t {jpg,png,webp}, --type {jpg,png,webp} Image type
 ## -q QUALITY, --quality QUALITY Image quality jpg 0-100, webm 0-100, png 9-0
 ## -o OUTPUT, --output OUTPUT Output directory for captured images [default = ./ ]
+
+## Dependecies
+
+* [opencv](http://opencv.org/)
+* [numpy](http://www.numpy.org/)
