@@ -23,7 +23,6 @@ class TimeLapse:
         self.imageType = config.type
         self.imageQuality = config.quality
         self.verbose = config.verbose
-        print(config)
 
     def getResolution(self):
         """getResolution"""
