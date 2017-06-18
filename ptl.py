@@ -42,14 +42,14 @@ class TimeLapse:
 
     def run(self):
         """run"""
-        ok, img = self.takePhoto()
-        if ok:
-            self.saveImage(img)
-            self.currnetShot += 1
-        sleep(self.interval)
-        if self.shots and self.shots <= self.currnetShot:
-            return
-        self.run()
+        while True:
+            if self.shots and self.shots <= self.currnetShot:
+                break
+            ok, img = self.takePhoto()
+            if ok:
+                self.saveImage(img)
+                self.currnetShot += 1
+            sleep(self.interval)
 
     def takePhoto(self):
         """takePhoto"""
