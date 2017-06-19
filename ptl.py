@@ -14,10 +14,10 @@ class TimeLapse:
     def __init__(self, config):
         """__init__(self):"""
         self.interval = config.interval
-        self.shots = config.shots
+        self.shots = config.count
         self.output = config.output
         self.camera = VideoCapture(config.device)
-        self.shots = config.shots
+        self.startFrom = config.startfrom
         self.currnetShot = 0
         self.imageName = config.name
         self.imageType = config.type
@@ -41,6 +41,11 @@ class TimeLapse:
 
     def run(self):
         """run"""
+        if self.startFrom:
+            self.currnetShot = self.startFrom
+            if self.shots:
+                self.shots = self.startFrom + self.shots
+
         while True:
             if self.shots and self.shots <= self.currnetShot:
                 break
@@ -99,7 +104,8 @@ if __name__ == "__main__":
     parser.add_argument('-v', '--verbose', action="store_true", help="verbose")
     parser.add_argument('-i', '--interval', default=1, type=int, help='time interval in sec [default = 1]')
     parser.add_argument('-d', '--device', default=0, type=int, help='Device number [default = 0]')
-    parser.add_argument('-s', '--shots', type=int, help='Number of shots to take')
+    parser.add_argument('-c', '--count', type=int, help='Number of shots to take')
+    parser.add_argument('-s', '--startfrom', type=int, help='start from photo index (image_01.jpg)')
     parser.add_argument('-n', '--name', type=str, default='image', help='Base name of taken photos ')
     parser.add_argument('-t', '--type', choices=['jpg', 'png', 'webp'], default='jpg', help='Image type')
     parser.add_argument('-q', '--quality', type=int, default=-1, help='Image quality jpg 0-100, webm 0-100, png 9-0')

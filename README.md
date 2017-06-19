@@ -5,7 +5,8 @@
 ##  -v, --verbose         verbose
 ##  -i INTERVAL, --interval INTERVAL time interval in sec [default = 1]
 ##  -d DEVICE, --device DEVICE Device number [default = 0]
-##  -s SHOTS, --shots SHOTS Number of shots to take
+##  -c COUNT, --count COUNT Number of shots to take
+##  -s STARTFROM --startfrom STARTFROM Start indexing photos form index
 ##  -n NAME, --name NAME  Base name of taken photos
 ##  -t {jpg,png,webp}, --type {jpg,png,webp} Image type
 ## -q QUALITY, --quality QUALITY Image quality jpg 0-100, webm 0-100, png 9-0
